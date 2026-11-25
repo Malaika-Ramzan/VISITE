@@ -1,0 +1,120 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+html{
+  scroll-behavior:smooth;
+}
+body{
+  font-family:'Poppins', sans-serif;
+  background:#0a0a1a;
+  color:#fff;
+  overflow-x:hidden;
+}
+
+/* NAVBAR - ab double nahi dikhega */
+nav{
+  position:fixed; top:0; left:0; width:100%;
+  display:flex; justify-content:space-between; align-items:center;
+  padding:16px 5%; z-index:100;
+  background:rgba(0,0,0,0.25);
+}
+.logo{
+  font-family:'Playfair Display', serif;
+  font-size:26px; font-weight:900; letter-spacing:3px;
+}
+.nav-links{ display:flex; gap:26px; list-style:none; }
+.nav-links a{
+  color:#fff; text-decoration:none; font-size:13px;
+}
+.menu-btn{
+  display:none; font-size:28px; cursor:pointer;
+  background:none; border:none; color:#fff;
+}
+
+/* 3 DOTS */
+.dots{
+  position:fixed; right:20px; top:50%;
+  transform:translateY(-50%); z-index:100;
+  display:flex; flex-direction:column; gap:14px;
+}
+.dot{
+  width:12px; height:12px; border-radius:50%;
+  background:rgba(255,255,255,.45);
+  border:2px solid #fff; display:block;
+}
+.dot.active{ background:#fff; transform:scale(1.4); }
+
+/* HAR PAGE - AB KAT-NAHI HOGA */
+section{
+  width:100%;
+  min-height:100vh;
+  position:relative;
+  display:flex; align-items:center;
+  padding:110px 6% 60px;
+  overflow:hidden;
+}
+.bg-img{
+  position:absolute;
+  top:0; left:0;
+  width:100%; height:100%;
+  object-fit:cover;
+  z-index:0;
+}
+.overlay{
+  position:absolute; inset:0; z-index:1;
+  background:linear-gradient(to bottom, rgba(0,0,0,.15), rgba(0,0,0,.60));
+}
+.content{
+  position:relative; z-index:2; max-width:680px; width:100%;
+}
+.small{ font-size:12px; letter-spacing:3px; text-transform:uppercase; opacity:.85; margin-bottom:12px; }
+h1{
+  font-family:'Playfair Display', serif;
+  font-size:clamp(60px, 12vw, 130px);
+  line-height:1; font-weight:900;
+}
+h2{
+  font-family:'Playfair Display', serif;
+  font-size:clamp(42px, 7vw, 80px);
+  line-height:1.1; margin-bottom:14px;
+}
+p{ font-size:16px; line-height:1.8; opacity:.92; margin-top:14px; font-weight:300; }
+.btn{
+  display:inline-block; margin-top:24px; padding:14px 30px;
+  border:1px solid #fff; color:#fff; text-decoration:none;
+  font-size:13px; letter-spacing:2px; border-radius:50px;
+}
+.btn:hover{ background:#fff; color:#000; }
+.card{
+  margin-top:24px; background:rgba(255,255,255,.15);
+  border:1px solid rgba(255,255,255,.30);
+  padding:16px; border-radius:16px;
+  display:flex; gap:14px; align-items:center;
+}
+.card span{ font-size:28px; }
+.gallery{ display:flex; gap:12px; margin-top:20px; flex-wrap:wrap; }
+.gallery img{
+  width:150px; height:110px; object-fit:cover;
+  border-radius:12px; border:2px solid #fff;
+}
+footer{
+  background:#080816; text-align:center;
+  padding:30px 15px; font-size:13px;
+}
+
+/* MOBILE / IPAD / LAPTOP */
+@media(max-width:900px){
+  .nav-links{
+    position:fixed; top:0; right:-100%; width:72%; height:100vh;
+    background:#12122e; flex-direction:column;
+    justify-content:center; align-items:center;
+    transition:.4s;
+  }
+  .nav-links.show{ right:0; }
+  .menu-btn{ display:block; }
+  section{ padding:100px 6% 70px; }
+  .dots{ right:12px; }
+  .gallery img{ width:31%; height:90px; }
+}
